@@ -3,9 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using StockApplication_UserDomain.Data;
+using StockApplication_UserDomain.Services.KYC;
 using StockApplication_UserDomain.Services.LoginService;
 using StockApplication_UserDomain.Services.SigninService;
 using StockApplication_UserDomain.Services.UserDataService;
+using StockApplication_UserDomain.Services.WatchlistService;
 using Swashbuckle.AspNetCore.Filters;
 using System.Text;
 
@@ -20,12 +22,14 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<ILoginService, LoginService>();
 builder.Services.AddTransient<ISigninService, SigninService>();
 builder.Services.AddTransient<IUserDataService, UserDataService>();
+builder.Services.AddTransient<IAddKYC, AddKYC>();
+builder.Services.AddTransient<IWatchlistService, WatchlistService>();
 
 
 
 builder.Services.AddDbContext<ApplicationContext>(options =>
 {
-    options.UseNpgsql("Host=localhost; Database=UserDetails; Username=postgres; password=123");
+    options.UseNpgsql("Host=tradexclouduserdomainpostgresdb.cfg860mwu3jf.ap-south-1.rds.amazonaws.com; Database=postgres; Username=TradeXCloudAdmin; password=tradexcloud123");
 });
 
 builder.Services.AddSwaggerGen(options =>

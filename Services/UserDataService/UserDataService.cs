@@ -22,11 +22,16 @@ namespace StockApplication_UserDomain.Services.UserDataService
 
             var query_1 = $"SELECT * FROM public.\"StockInfo\" WHERE '{PanNumber+"_1"}' = ANY(\"StockInfo\".\"WatchList\")";
             var query_2 = $"SELECT * FROM public.\"StockInfo\" WHERE '{PanNumber+"_2"}' = ANY(\"StockInfo\".\"WatchList\")";
+     
 
-            var account_response = _database.AccountInfo.Where(e => e.PanNumber == PanNumber).FirstOrDefault();
+           
+
+            var account_response = _database.AccountInfo.Where(e => e.PanNumber == PanNumber)?.FirstOrDefault();
             var user_response = _database.Users.Where(e => e.PanNumber ==  PanNumber).FirstOrDefault();
             var stock_watchList1_info = _database.StockInfo.FromSqlRaw(query_1)?.ToList();
             var stock_watchList2_info = _database.StockInfo.FromSqlRaw(query_2)?.ToList();
+
+            
 
             foreach(var stock in stock_watchList1_info)
             {
@@ -63,6 +68,12 @@ namespace StockApplication_UserDomain.Services.UserDataService
                 PhoneNumberVerified = user_response.PhoneNumberVerified,
                 UserWatchList_1 = watchList1,
                 UserWatchList_2 = watchList2,
+                AccountHolder = account_response.HolderName,
+                AccountNumber = account_response.AccountNumber,
+                BranchName = account_response.BranchName,
+                IFSCCode = account_response.IFSCCode
+
+                
                 
 
             };

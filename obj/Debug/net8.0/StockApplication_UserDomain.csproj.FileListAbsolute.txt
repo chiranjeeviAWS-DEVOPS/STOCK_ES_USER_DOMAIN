@@ -115,3 +115,4 @@ E:\internship\stock_application_backend\StockApplication_UserDomain\bin\Debug\ne
 E:\internship\stock_application_backend\StockApplication_UserDomain\bin\Debug\net8.0\Scrutor.dll
 E:\internship\stock_application_backend\StockApplication_UserDomain\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.dll
 E:\internship\stock_application_backend\StockApplication_UserDomain\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+E:\internship\stock_application_backend\StockApplication_UserDomain\obj\Debug\net8.0\StockApplication_UserDomain.sourcelink.json

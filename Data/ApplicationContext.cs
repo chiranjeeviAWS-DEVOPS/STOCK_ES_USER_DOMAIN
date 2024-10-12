@@ -12,7 +12,7 @@ namespace StockApplication_UserDomain.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost; Database=UserDetails; Username=postgres; password=123");
+            optionsBuilder.UseNpgsql("Host=tradexclouduserdomainpostgresdb.cfg860mwu3jf.ap-south-1.rds.amazonaws.com; Database=postgres; Username=TradeXCloudAdmin; password=tradexcloud123");
         }
         public DbSet<Users> Users { get; set; }
         public DbSet<AccountInfo> AccountInfo { get; set; }
